@@ -32,7 +32,7 @@ if ( 'login' == $action ) {
                 die();
             }
         } else {
-            header( "location:login.php?error" );
+            header( "location:index.php?error" );
         }
 
     }

@@ -19,7 +19,7 @@ if ( !$connection ) {
             $hashPassword = password_hash( $password, PASSWORD_BCRYPT );
             $query = "INSERT INTO managers(fname,lname,email,phone,password) VALUES ('{$fname}','$lname','$email','$phone','$hashPassword')";
             mysqli_query( $connection, $query );
-            header( "location:index.php?id=allManager" );
+            header( "location:dashboard.php?id=allManager" );
         }
 
     } elseif ( 'updateManager' == $action ) {
@@ -32,7 +32,7 @@ if ( !$connection ) {
         if ( $fname && $lname && $lname && $phone ) {
             $query = "UPDATE managers SET fname='{$fname}', lname='{$lname}', email='$email', phone='$phone' WHERE id='{$id}'";
             mysqli_query( $connection, $query );
-            header( "location:index.php?id=allManager" );
+            header( "location:dashboard.php?id=allManager" );
         }
     } elseif ( 'addPharmacist' == $action ) {
         $fname = $_REQUEST['fname'] ?? '';
@@ -45,7 +45,7 @@ if ( !$connection ) {
             $hashPassword = password_hash( $password, PASSWORD_BCRYPT );
             $query = "INSERT INTO pharmacists(fname,lname,email,phone,password) VALUES ('{$fname}','$lname','$email','$phone','$hashPassword')";
             mysqli_query( $connection, $query );
-            header( "location:index.php?id=allPharmacist" );
+            header( "location:dashboard.php?id=allPharmacist" );
         }
     } elseif ( 'updatePharmacist' == $action ) {
         $id = $_REQUEST['id'] ?? '';
@@ -57,7 +57,7 @@ if ( !$connection ) {
         if ( $fname && $lname && $lname && $phone ) {
             $query = "UPDATE pharmacists SET fname='{$fname}', lname='{$lname}', email='$email', phone='$phone' WHERE id='{$id}'";
             mysqli_query( $connection, $query );
-            header( "location:index.php?id=allPharmacist" );
+            header( "location:dashboard.php?id=allPharmacist" );
         }
     } elseif ( 'addSalesman' == $action ) {
         $fname = $_REQUEST['fname'] ?? '';
@@ -70,7 +70,7 @@ if ( !$connection ) {
             $hashPassword = password_hash( $password, PASSWORD_BCRYPT );
             $query = "INSERT INTO salesmans(fname,lname,email,phone,password) VALUES ('{$fname}','$lname','$email','$phone','$hashPassword')";
             mysqli_query( $connection, $query );
-            header( "location:index.php?id=allSalesman" );
+            header( "location:dashboard.php?id=allSalesman" );
         }
     } elseif ( 'updateSalesman' == $action ) {
         $id = $_REQUEST['id'] ?? '';
@@ -82,7 +82,7 @@ if ( !$connection ) {
         if ( $fname && $lname && $lname && $phone ) {
             $query = "UPDATE salesmans SET fname='{$fname}', lname='{$lname}', email='$email', phone='$phone' WHERE id='{$id}'";
             mysqli_query( $connection, $query );
-            header( "location:index.php?id=allSalesman" );
+            header( "location:dashboard.php?id=allSalesman" );
         }
     } elseif ( 'updateProfile' == $action ) {
 
@@ -115,7 +115,7 @@ if ( !$connection ) {
                         $avatarTmpName = $_FILES['avatar']['tmp_name'];
                         move_uploaded_file( $avatarTmpName, "assets/img/$avatar" );
                     } else {
-                        header( "location:index.php?id=userProfileEdit&avatarError" );
+                        header( "location:dashboard.php?id=userProfileEdit&avatarError" );
                         return;
                     }
                 } else {
@@ -126,7 +126,7 @@ if ( !$connection ) {
                     $updateQuery = "UPDATE {$sessionRole}s SET fname='{$fname}', lname='{$lname}', email='{$email}', phone='{$phone}', password='{$hashPassword}', avatar='{$avatarName}' WHERE id='{$sessionId}'";
                     mysqli_query( $connection, $updateQuery );
 
-                    header( "location:index.php?id=userProfile" );
+                    header( "location:dashboard.php?id=userProfile" );
                 }
 
             }

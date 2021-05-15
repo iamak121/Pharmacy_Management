@@ -1,0 +1,36 @@
+body {
+
+  color: #404040;
+  background: #0ca3d2;
+
+  background-image: url("images/pharma.jpg");
+  background-size: cover;
+
+}
+.welcome{
+  text-align: center;
+  margin:300px auto auto auto;
+  color: #3d84b8;
+}
+.welcome-font{
+  font-size:50px;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+.button{
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+@media(max-width:1035px){
+  .welcome{
+
+    text-align: center;
+  }
+  .welcome-font{
+    font-size:20px;
+
+  }
+
+}
